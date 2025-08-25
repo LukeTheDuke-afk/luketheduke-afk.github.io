@@ -1,100 +1,380 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lucas Åkesson's Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lucas Åkesson — Portfolio</title>
+  <meta name="description" content="Minimal, fast, single‑page portfolio with sections for About, Work, and Contact." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- Social (optional) -->
+  <meta property="og:title" content="Your Name — Portfolio" />
+  <meta property="og:description" content="Minimal, fast, single‑page portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com" />
+  <meta name="twitter:card" content="summary" />
+
   <style>
+    /*
+      Minimal one-file site
+      - Clean typography, generous spacing
+      - Sticky sidebar on desktop, top nav on mobile
+      - Smooth scrolling + scrollspy
+      - Subtle reveal animations
+    */
+
+    :root {
+      --bg: #ffffff;
+      --fg: #0a0a0a;
+      --muted: #6b7280; /* gray-500 */
+      --link: #0f766e; /* teal-700 */
+      --link-hover: #115e59; /* teal-800 */
+      --accent: #0ea5e9; /* sky-500 */
+
+      --max-w: 960px;
+      --sidebar-w: 220px;
+
+      --radius: 1.25rem;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+      --step--1: clamp(0.9rem, 0.85rem + 0.2vw, 1.05rem);
+      --step-0: clamp(1.05rem, 1rem + 0.5vw, 1.25rem);
+      --step-1: clamp(1.3rem, 1.1rem + 1.2vw, 1.75rem);
+      --step-2: clamp(2rem, 1.6rem + 2.5vw, 3rem);
+      --step-3: clamp(3rem, 2.4rem + 3.5vw, 4.25rem);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --fg: #e5e7eb; /* gray-200 */
+        --muted: #9ca3af; /* gray-400 */
+        --link: #74b77b; /* cyan-300 */
+        --link-hover: #469f4f; /* cyan-400 */
+        --accent: #2f9339; /* blue-400 */
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #051404, #196914);
+      background: linear-gradient(135deg, #051b07, #0c4412);
+      color: var(--fg);
+      font: 400 var(--step-0)/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Banner styles */
-    .banner {
-      background: linear-gradient(135deg, #051404, #196914);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); }
+
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 1.25rem;
     }
 
-    .banner h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    .layout {
+      display: grid;
+      gap: 2rem;
     }
 
-    .banner p {
-      margin: 10px 0 0;
-      font-size: 1.2rem;
+    header { position: relative; }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+      padding: .75rem 1rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: saturate(120%) blur(6px);
+      position: sticky;
+      top: .75rem;
+      z-index: 10;
+      background: #051b07;
     }
 
-    
-    /* Just for demo page content */
-    .content {
-      padding: 20px;
-      max-width: 700px;
-      margin: auto;
-      color: #ffffff;
+    .brand {
+      font-weight: 700;
+      letter-spacing: .2px;
     }
 
-  ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
+    .menu {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .menu a {
+      padding: .25rem .5rem;
+      border-radius: .75rem;
+    }
+    .menu a[aria-current="true"] {
+      background: color-mix(in oklab, var(--accent) 20%, transparent);
+    }
 
-li {
-  float: left;
-}
+    /* Desktop: sticky sidebar */
+    @media (min-width: 980px) {
+      .layout { grid-template-columns: var(--sidebar-w) 1fr; align-items: start; }
+      header { position: sticky; top: 1rem; height: calc(100dvh - 2rem); }
+      nav { flex-direction: column; align-items: flex-start; gap: 1.25rem; position: static; box-shadow: none; }
+      .menu { flex-direction: column; gap: .25rem; }
+      .brand { font-size: var(--step-1); }
+    }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+    main { }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
-}
+    .hero {
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .hero h1 {
+      font-size: var(--step-3);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.5rem 0;
+    }
+    .hero p { font-size: var(--step-1); color: var(--muted); margin: 0; }
+
+    section { padding: 3rem 0; border-top: 1px dashed color-mix(in oklab, var(--fg) 12%, transparent); }
+    section:first-of-type { border-top: none; }
+
+    h2 {
+      font-size: var(--step-2);
+      line-height: 1.15;
+      margin: 0 0 1rem 0;
+      letter-spacing: -0.01em;
+    }
+    .muted { color: var(--muted); }
+
+    .prose { max-width: 68ch; }
+    .prose p { margin: 0 0 1rem 0; }
+    .prose ul { margin: 0; padding-left: 1.25rem; }
+
+    .card {
+      border: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow);
+      background: #07280a;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 720px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid color-mix(in oklab, var(--fg) 16%, transparent);
+      border-radius: 999px;
+      padding: .2rem .6rem;
+      font-size: var(--step--1);
+      margin-right: .4rem;
+      margin-top: .25rem;
+    }
+
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Better anchor scrolling offset */
+    :target { scroll-margin-top: 6rem; }
+    @media (min-width: 980px) {
+      :target { scroll-margin-top: 1rem; }
+    }
+
+    /* Footer */
+    footer { padding: 2rem 0 3rem; color: var(--muted); font-size: var(--step--1); }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
+    }
   </style>
 </head>
 <body>
+  <a href="#main" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
 
-  <!-- Banner -->
-  <div class="banner">
-    <h1>Lucas Åkesson: Portfolio</h1>
-    <p>Game Development | 3D Artistry | Level Design</p>
-  </div>
+  <div class="wrap layout">
+    <!-- Sidebar / Header -->
+    <header>
+      <nav aria-label="Primary">
+        <div class="brand">Lucas Åkesson</div>
+        <div class="muted" style="max-width: 20ch;">Junior game developer, 3D artist and level designer</div>
+        <div class="menu" role="list">
+          <a href="#about" role="listitem">About Me</a>
+          <a href="#kthwork" role="listitem">Projects at KTH</a>
+          <a href="#personalwork" role="listitem">Personal Projects</a>
+          <a href="#contact" role="listitem">Contact</a>
+        </div>
+      </nav>
+    </header>
 
-  <!-- Navigation Bar -->
-  <ul>
-    <li><a href="default.asp">Home</a></li>
-    <li><a href="news.asp">News</a></li>
-    <li><a href="contact.asp">Contact</a></li>
-    <li><a href="about.asp">About</a></li>
-  </ul>  
+    <!-- Main Content -->
+    <main id="main">
+      <div class="hero reveal">
+        <h1>Developer & Designer</h1>
+        <p>Creating engaging gaming experiences</p>
+      </div>
 
-  <!-- Page Content -->
-  <div class="content">
-    <h2>About Me</h2>
-    <p>
-      Hi! My name is Lucas Åkesson (he/him). Currently 26 years of age, and a recent graduate with both a BSC and a MSc (SE: Civilingenjör) in Interactive Mediatechnology from KTH Royal Institute of Technology.
+      <section id="about" class="reveal" aria-labelledby="about-title">
+        <h2 id="about-title">About Me</h2>
+        <div class="prose">
+          <h1>Hi, I'm <strong>Luke</strong>!</h1>
+          <p>My name is Lucas Åkesson (he/him). Currently 26 years of age, and a recent graduate with both a BSC and a MSc (SE: Civilingenjör) in Interactive Mediatechnology from KTH Royal Institute of Technology.
       I am an avid gamer, and have been since I recieved my very first game console (a Gameboy Advance SP I still own and cherish to this day) at the age of around 8 or 9.
       I thoroughly enjoy every aspect of video games, from playing them to creating them, and have been a part of a few very interesting game projects during my time at KTH.
       All of these projects, as well as some personal work, can be found within this portfolio. They range from 3D artistry and character design, to environment art, level design and sound design.
-      If you have any questions or want to learn more about me and my work, don't hesitate to reach out via email or on LinkedIn!
-    </p>
-    <h2>Projects</h2>
-    <p>
-      Project 1, Project 2, Project 3…
-    </p>
+      If you have any questions or want to learn more about me and my work, don't hesitate to reach out via email or on LinkedIn!</p>
+          <p class="muted">Currently open to job offers in game development, 3D artistry and level/enviornment design</p>
+        </div>
+      </section>
+
+      <section id="kthwork" class="reveal" aria-labelledby="work-title">
+        <h2 id="work-title">Projects at KTH</h2>
+        <div class="grid">
+
+          <a href="https://example.com/project-one" target="_blank" rel="noopener noreferrer" class="card" style="display:block; color:inherit; text-decoration:none;">
+            <h3 style="margin:0 0 .25rem 0;">Master Thesis (2025)</h3>
+            <p class="muted" style="margin:0 0 .75rem 0;">Evaluating methods for procedural vegetation generation distribution: Balancing computational efficiency and visual fidelity</p>
+            <div>
+              <span class="tag">Procedural Generation</span>
+              <span class="tag">Environment Design</span>
+              <span class="tag">User Research</span>
+            </div>
+        </a>
+
+        <a href="https://example.com/project-one" target="_blank" rel="noopener noreferrer" class="card" style="display:block; color:inherit; text-decoration:none;">
+            <h3 style="margin:0 0 .25rem 0;">TwinBound (2025)</h3>
+            <p class="muted" style="margin:0 0 .75rem 0;">A 2.5 local co-op platforming game.</p>
+            <div>
+              <span class="tag">Game Art</span>
+              <span class="tag">Sound Design</span>
+              <span class="tag">Game Development</span>
+            </div>
+        </a>
+
+        <a href="https://example.com/project-one" target="_blank" rel="noopener noreferrer" class="card" style="display:block; color:inherit; text-decoration:none;">
+            <h3 style="margin:0 0 .25rem 0;">ShaderBender (2024)</h3>
+            <p class="muted" style="margin:0 0 .75rem 0;">An interactive body mirror experience.</p>
+            <div>
+              <span class="tag">Environment Art</span>
+              <span class="tag">Sound Design</span>
+              <span class="tag">Level Design</span>
+            </div>
+          </a>
+
+          <a href="https://example.com/project-one" target="_blank" rel="noopener noreferrer" class="card" style="display:block; color:inherit; text-decoration:none;">
+            <h3 style="margin:0 0 .25rem 0;">Gnome Hunt (2024)</h3>
+            <p class="muted" style="margin:0 0 .75rem 0;">A multi-platform party game.</p>
+            <div>
+              <span class="tag">3D Art</span>
+              <span class="tag">Level Design</span>
+              <span class="tag">Animation</span>
+              <span class="tag">Game Development</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <section id="personalwork" class="reveal" aria-labelledby="work-title">
+        <h2 id="work-title">Personal Projects</h2>
+        <div class="grid">
+
+
+          <a href="https://example.com/project-one" target="_blank" rel="noopener noreferrer" class="card" style="display:block; color:inherit; text-decoration:none;">
+            <h3 style="margin:0 0 .25rem 0;">3D Art</h3>
+            <p class="muted" style="margin:0 0 .75rem 0;">Personal work in the realm of 3D Art</p>
+            <div>
+              <span class="tag">Scultping</span>
+              <span class="tag">Rigging</span>
+              <span class="tag">Animation</span>
+              <span class="tag">Texturing</span>
+            </div>
+          </a>
+          
+          <a href="https://example.com/project-one" target="_blank" rel="noopener noreferrer" class="card" style="display:block; color:inherit; text-decoration:none;">
+            <h3 style="margin:0 0 .25rem 0;">Game Development</h3>
+            <p class="muted" style="margin:0 0 .75rem 0;">Personal game development projects</p>
+            <div>
+              <span class="tag">C#</span>
+              <span class="tag">Unity</span>
+              <span class="tag">URP Shaders</span>
+            </div>
+          </a>
+
+          <a href="https://example.com/project-one" target="_blank" rel="noopener noreferrer" class="card" style="display:block; color:inherit; text-decoration:none;">
+            <h3 style="margin:0 0 .25rem 0;">Environment Design</h3>
+            <p class="muted" style="margin:0 0 .75rem 0;">Personal work in the realm of environment design</p>
+            <div>
+              <span class="tag">Environment Art</span>
+              <span class="tag">Environment Design</span>
+              <span class="tag">Level Design</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="contact" class="reveal" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <div class="card" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
+          <div class="prose" style="flex:1 1 320px;">
+            <p>Want to work together? Send me an email or find me on LinkedIn</p>
+            <p class="muted">I read everything and typically reply within a day.</p>
+          </div>
+          <div>
+            <p style="margin:.25rem 0;"><a href="mailto:lucas.falk.ake@gmail.com"><strong>lucas.falk.ake@gmail.com</strong></a></p>
+            <p style="margin:.25rem 0;"><a href="https://www.linkedin.com/in/lucas-%C3%A5kesson-374466366/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="wrap" aria-label="Footer">
+        <div class="muted">© <span id="year"></span> Lucas Åkesson. Built with HTML & CSS.</div>
+      </footer>
+    </main>
   </div>
 
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Scrollspy: highlight current section link
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const links = [...document.querySelectorAll('.menu a')];
+
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute('id');
+        const link = links.find(a => a.getAttribute('href') === `#${id}`);
+        if (entry.isIntersecting) {
+          links.forEach(a => a.removeAttribute('aria-current'));
+          if (link) link.setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+
+    sections.forEach(sec => spy.observe(sec));
+  </script>
 </body>
 </html>
