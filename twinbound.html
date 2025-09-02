@@ -7,11 +7,26 @@
   <link rel="stylesheet" href="projects.css">
 </head>
 <body>
-  <main class="wrap">
-    <p><a href="index.html">← Back to portfolio</a></p>
+  <a href="#main" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
 
+  <div class="wrap layout">
+    <!-- Sidebar / Header -->
+    <header>
+      <nav aria-label="Primary">
+        <div class="brand">TwinBound</div>
+        <div class="menu" role="list">
+          <a href="#about" role="listitem">About TwinBound</a>
+          <a href="#staticga" role="listitem">Static Game Art</a>
+          <a href="#sounddc" role="listitem">Sound Design and Code</a>
+          <p><a href="index.html">← Back to portfolio</a></p>
+        </div>
+      </nav>
+    </header>
+  <main class="wrap">
+
+    <section id="about">
     <div class="project">
-      <img src="TwinBoundPoster.png" alt="TwinBound Poster">
+      <img src="TwinBoundFiles/TwinBoundPoster.png" alt="TwinBound Poster">
       <div class="project-content">
         <h1>TwinBound (2025)</h1>
         <h3>A local co-op 2.5D platformer game.</h3>
@@ -24,44 +39,71 @@
       </div>
     </div>
     <p class="muted" style="margin:0 0 .75rem 0;">If you would like to learn more about TwinBound, you can find our website <a href="https://sites.google.com/view/dh2650-twinbound/startsida">here.</a></p>
+    </section>
+
+    <section id="staticga">
     <h1>My work on TwinBound</h1>
     <h3>Static Game Art</h3>
     <p>My main responsibility for TwinBound related to the static art of the game. The 2D Art was created in Photoshop, and includes the background, platform textures, and the dirt tiles.
       The 3D art was created with Blender and includes the potion, buttons and lamps. 
     </p>
 
-    <div class="grid">
+    <div class="gallery-grid">
     <div class="card">
-      <img src="images/work1.jpg" alt="Work 1" class="gallery-img">
+      <img src="TwinBoundFiles/Dirt_Basic.png" alt="Dirt Tile 1" class="gallery-img">
     </div>
     <div class="card">
-      <img src="images/work2.jpg" alt="Work 2" class="gallery-img">
+      <img src="TwinBoundFiles/Dirt_Dinasour.png" alt="Dirt Tile 2" class="gallery-img">
     </div>
     <div class="card">
-      <img src="images/work3.jpg" alt="Work 3" class="gallery-img">
+      <img src="TwinBoundFiles/Dirt_Grass.png" alt="Dirt Tile 3" class="gallery-img">
     </div>
+    <div class="card">
+      <img src="TwinBoundFiles/Dirt_StoneSparse.png" alt="Dirt Tile 4" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/PixelAttempt.png" alt="Background" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/PotionImage.png" alt="Potion" class="gallery-img">
+      <img src="TwinBoundFiles/ButtonImage.png" alt="Button" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/TwinBoundLogo.png" alt="Game Logo" class="gallery-img">
+    </div>
+
     <!-- Add more cards as needed -->
     </div>
+    </section>
 
-    <!-- Lightbox overlay -->
-    <div id="lightbox" class="lightbox">
+  <section id="sounddc">
+  <h3>Sound Design and Code</h3>
+    <p>As a secondary responsibility I worked on the sound design for TwinBound. This included enhancing the user experience by adding sound queues to action such as pressing buttons or collecting potions.
+      I also created the sound track for the game, which includes the intro screen song as well as the song that plays during the gameplay. Most sounds were sourced from royalty free website, but the music was crafted by me using FL Studios.
+    </p>
+  <div class="grid">
+  <figure>
+    <audio controls>
+    <source src="TwinBoundFiles/TwinBoundStartscreen.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+    <figcaption>Intro Screen Soundtrack</figcaption>
+  </figure>
+  
+
+  <figure>
+    <audio controls>
+    <source src="TwinBoundFiles/Soundtrack_Iter1.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+    <figcaption>Gameplay Soundtrack</figcaption>
+  </figure>
+
+  </div>
+  </section>
+  <div id="lightbox" class="lightbox">
       <span class="close">&times;</span>
       <img class="lightbox-content" id="lightbox-img">
-    </div>
-  <h3>Sound Design and Code</h3>
-  <p>As a secondary responsibility I worked on the sound design for TwinBound. This included enhancing the user experience by adding sound queues to action such as pressing buttons or collecting potions.
-    I also created the sound track for the game, which includes the intro screen song as well as the song that plays during the gameplay. Most sounds were sourced from royalty free website, but the music was crafted by me using FL Studios.
-  </p>
-  <div class="grid">
-  <audio controls>
-  <source src="music/track1.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
-
-  <audio controls>
-    <source src="music/track2.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
   </div>
   </main>
 

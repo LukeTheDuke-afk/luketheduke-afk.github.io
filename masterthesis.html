@@ -7,8 +7,24 @@
   <link rel="stylesheet" href="projects.css">
 </head>
 <body>
+    <a href="#main" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+
+  <div class="wrap layout">
+    <!-- Sidebar / Header -->
+    <header>
+      <nav aria-label="Primary">
+        <div class="brand">Master Thesis</div>
+        <div class="menu" role="list">
+          <a href="#about" role="listitem">About Master Thesis</a>
+          <a href="#perlin" role="listitem">Perlin Noise Distribution</a>
+          <a href="#poisson" role="listitem">Poisson Disk Sampling Distribution</a>
+          <a href="#fon" role="listitem">Field-Of-Neighborhood Distribution</a>
+          <p><a href="index.html">← Back to portfolio</a></p>
+        </div>
+      </nav>
+    </header>
   <main class="wrap">
-    <p><a href="index.html">← Back to portfolio</a></p>
+  <section id="about">
     <h1>Master Thesis (2025)</h1>
     <h3>Evaluating Methods for Procedural Vegetation Generation Distribution: Balancing Computational Efficiency and Visual Fidelity</h3>
     <p>My master theis was about evaluating diffferent methods for Procedural Vegetation Generation.
@@ -20,24 +36,27 @@
         While each method had its own strengths and weaknesses, the results suggest that when aiming for a good balance between the two fields, Poisson Disk Sampling Distribution is the best method to use.
     </p>
     <p class="muted" style="margin:0 0 .75rem 0;">If you would like to read my master thesis in its entirety, you can find it <a href="https://kth.diva-portal.org/smash/record.jsf?pid=diva2%3A1986264&dswid=-9595">here.</a></p>
-    
+    </section>
 
+    <section id="perlin">
     <h3>Perlin Noise Distribution</h3>
     <p>In this method, the vegetation was procedurally distributed based on the values generated from a 2D Perlin noise map.
     The map was created corresponding to the size of the terrain, where each pixel on the map represented the density value for a specific position on the terrain.
     Each point on the terrain was then compared to a pre-defined target density, and if the noise map value exceeded that density threshold, a potential placement location was generated.</p>
     <div class="grid">
     <figure class="card">
-      <img src="PerlinDistribution.JPG" alt="Bird's eye view of Perlin Noise Distribution" class="gallery-img">
+      <img src="MasterThesisPictures/PerlinDistribution.JPG" alt="Bird's eye view of Perlin Noise Distribution" class="gallery-img">
       <figcaption>A bird's eye view of the results of the Perlin Noise Distribution.</figcaption>
     </figure>
 
     <figure class="card">
-      <img src="PerlinDistributionFOV.png" alt="First-person view of Perlin Noise Distribution" class="gallery-img">
+      <img src="MasterThesisPictures/PerlinDistributionFOV.png" alt="First-person view of Perlin Noise Distribution" class="gallery-img">
       <figcaption>A first-person view of the results of the Perlin Noise Distribution.</figcaption>
     </figure>
     </div>
+    </section>
 
+    <section id="poisson">
     <h3>Poisson Disk Sampling Distribution</h3>
     <p>In this method, vegetation was distributed in accordance with Poisson Disk Sampling. The terrain was divided into cells, and within each cell, a probable number of plants were distributed.
     Each plant type had a defined outer radius that dictated the minimum distance between it and other plants.
@@ -45,15 +64,18 @@
     had the smallest. The plant with the largest radius was placed first</p>
     <div class="grid">
     <figure class="card">
-      <img src="PoissonDistribution.JPG" alt="Bird's eye view of Poisson Disk Sampling Distribution" class="gallery-img">
+      <img src="MasterThesisPictures/PoissonDistribution.JPG" alt="Bird's eye view of Poisson Disk Sampling Distribution" class="gallery-img">
       <figcaption>A bird's eye view of the results of the Poisson Disk Sampling Distribution.</figcaption>
     </figure>
 
     <figure class="card">
-      <img src="PoissonDistributionFOV.png" alt="First-person view of Poisson Disk Sampling Distribution" class="gallery-img">
+      <img src="MasterThesisPictures/PoissonDistributionFOV.png" alt="First-person view of Poisson Disk Sampling Distribution" class="gallery-img">
       <figcaption>A first-person view of the results of the Poisson Disk Sampling Distribution.</figcaption>
     </figure>
     </div>
+    </section>
+
+    <section id="fon">
     <h3>Field-Of-Neighborhood Distribution</h3>
     <p> In this method, the distribution was made using the Field-Of-Neighborhood model. Each plant type was assigned two key attributes: an influence radius and a placement threshold. The
     influence radius refers to the radius around each plant within which it can influence the placement of other
@@ -64,18 +86,16 @@
     neighboring plant will not be placed in that area. </p>
     <div class="grid">
     <figure class="card">
-      <img src="FONDistribution.JPG" alt="Bird's eye view of Field-Of-Neighborhood Distribution" class="gallery-img">
+      <img src="MasterThesisPictures/FONDistribution.JPG" alt="Bird's eye view of Field-Of-Neighborhood Distribution" class="gallery-img">
       <figcaption>A bird's eye view of the results of the Field-Of-Neighborhood Distribution.</figcaption>
     </figure>
 
     <figure class="card">
-      <img src="FONDistributionFOV.png" alt="First-person view of Field-Of-Neighborhood Distribution" class="gallery-img">
+      <img src="MasterThesisPictures/FONDistributionFOV.png" alt="First-person view of Field-Of-Neighborhood Distribution" class="gallery-img">
       <figcaption>A first-person view of the results of the Field-Of-Neighborhood Distribution.</figcaption>
     </figure>
     </div>
-
-
-    </section>
+  </section>
       <div id="lightbox" class="lightbox">
       <span class="close">&times;</span>
       <img class="lightbox-content" id="lightbox-img">
