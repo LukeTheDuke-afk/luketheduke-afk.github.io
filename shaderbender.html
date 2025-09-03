@@ -3,14 +3,122 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ShaderBender (2024)</title>
+  <title>TwinBound (2025)</title>
   <link rel="stylesheet" href="projects.css">
 </head>
 <body>
+  <a href="#main" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+
+  <div class="wrap layout">
+    <!-- Sidebar / Header -->
+    <header>
+      <nav aria-label="Primary">
+        <div class="brand">ShaderBender</div>
+        <div class="menu" role="list">
+          <a href="#about" role="listitem">About ShaderBender</a>
+          <a href="#enveff" role="listitem">Enviromental Effects</a>
+          <a href="#sounddes" role="listitem">Sound Design</a>
+          <p><a href="index.html">← Back to portfolio</a></p>
+        </div>
+      </nav>
+    </header>
   <main class="wrap">
-    <p><a href="index.html">← Back to portfolio</a></p>
-    <h1>ShaderBender (2024)</h1>
-    <h3>An interactive body mirror experience</h3>
+
+    <section id="about">
+    <div class="project">
+      <img src="TwinBoundFiles/TwinBoundPoster.png" alt="ShaderBender Poster">
+      <div class="project-content">
+        <h1>ShaderBender (2024)</h1>
+        <h3>An interactive body mirror experience</h3>
+        <p>
+          Inspired by Avatar: The Last Airbender, ShaderBender allows you to step into the role of an avatar with the ability to bend the elements.
+          By mirroring your body on an avatar on-screen, ShaderBender invites you to explore how different ways of moving your body allows for the bending of different elements.
+          Lifting your left hand might allow you to bend water, while lifting the right allows you to bend fire. Move your body and discover how you can become a true avatar.
+        </p>
+       
+      </div>
+    </div>
+    </section>
+    <p class="muted" style="margin:0 0 2rem 0;">If you would like to learn more about ShaderBender, you can find our website <a href="https://the-secret-graphics-society.github.io/Shader-Bender/index.html">here.</a></p>
+
+    <section id="enveff">
+    <h1>My work on ShaderBender</h1>
+    <h3>Enviromental Effects</h3>
+    <p>My main responsibility for ShaderBender involved setting the right atmoshpere for the experience.
+      Early on we settled for a dojo in the mountains, with a thunderstorm in the background. To achieve this effect, I created two different particle systems: one for the rain, and one for the lightning.
+      To create the dark clouds of a thunderstorm, while keeping the effect on performance low, I created a URP shader to simulate volumteric clouds. I also created the mountain in the background within Blender, vertex paint to achieve the desired snowy peak.
+    </p>
+
+    <div class="gallery-grid">
+    <div class="card">
+      <img src="TwinBoundFiles/Dirt_Basic.png" alt="Dirt Tile 1" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/Dirt_Dinasour.png" alt="Dirt Tile 2" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/Dirt_Grass.png" alt="Dirt Tile 3" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/Dirt_StoneSparse.png" alt="Dirt Tile 4" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/PixelAttempt.png" alt="Background" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/PotionImage.png" alt="Potion" class="gallery-img">
+      <img src="TwinBoundFiles/ButtonImage.png" alt="Button" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/TwinBoundLogo.png" alt="Game Logo" class="gallery-img">
+    </div>
+
+    <!-- Add more cards as needed -->
+    </div>
+    </section>
+
+  <section id="sounddes">
+  <h3>Sound Design and Code</h3>
+    <p>As a secondary responsibility I worked on the sound design for ShaderBender. This mostly included sourcing sound effects for the elemental effects from royalty free sites, as well as mixing together a meditative sound track to play during the experience as a way to encourage mindful movement.
+    </p>
+  <div class="grid">
+  <figure>
+    <audio controls>
+    <source src="TwinBoundFiles/TwinBoundStartscreen.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+    <figcaption>Experience Soundtrack</figcaption>
+  </figure>
+
+  </div>
+  </section>
+  <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+  </div>
   </main>
+
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox .close");
+
+  document.querySelectorAll(".gallery-img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
