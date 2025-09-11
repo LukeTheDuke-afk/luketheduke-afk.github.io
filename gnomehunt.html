@@ -7,10 +7,188 @@
   <link rel="stylesheet" href="projects.css">
 </head>
 <body>
+  <a href="#main" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+
+  <div class="wrap layout">
+    <!-- Sidebar / Header -->
+    <header>
+      <nav aria-label="Primary">
+        <div class="brand">Gnome Hunt</div>
+        <div class="menu" role="list">
+          <a href="#about" role="listitem">About Gnome Hunt</a>
+          <a href="#character" role="listitem">Character Design</a>
+          <a href="#animation" role="listitem">Animation</a>
+          <a href="#props" role="listitem">Props</a>
+          <a href="#shaders" role="listitem">Shaders</a>
+          <a href="#leveldesign" role="listitem">Level Design</a>
+          <p><a href="index.html">← Back to portfolio</a></p>
+        </div>
+      </nav>
+    </header>
   <main class="wrap">
-    <p><a href="index.html">← Back to portfolio</a></p>
-    <h1>Gnome Hunt (2024)</h1>
-    <h3>A multi-platform party game</h3>
+
+    <section id="about">
+    <div class="project">
+      <img src="Gnome Hunt Files/GnomeHunt.png" alt="Gnome Hunt Poster">
+      <div class="project-content">
+        <h1>Gnome Hunt (2024)</h1>
+        <h3>A multi-platform party game.</h3>
+        <p>
+          Gnome Hunt is a multi-platform game that utilizes both a VR headset and mobile phones. The VR player is the exterminator, tasked with ridding a garden of imposter gnomes.
+          The mobile phone players are the imposter gnomes, and are tasked with hiding from the exterminator. Gnome Hunt is inspired by games such as Prop Hunt, where players utilize their surroundings to avoid detection by the exterminator.
+          The goal of the game depends on the role you play - the exterminator wants to rid the garden of all imposter gnomes, wheras the imposter gnomes want to survive the night. Gnome Hunt was displayed at three major events: ForskarFredag at AlbaNova, a showcase at Tekniska Muséet, as well as KulturNatten at Tekniska Muséet.
+        </p>
+      </div>
+    </div>
+    </section>
+    <p class="muted" style="margin:0 0 .75rem 0;">If you would like to learn more about Gnome Hunt, you can find our website <a href="https://sites.google.com/view/gnomehunt/home">here.</a></p>
+
+    <section id="character">
+    <h1>My work on Gnome Hunt</h1>
+    <h3>Character Design</h3>
+    <p>My main responsibility for Gnome Hunt was all 3D art and assets. The first order of business within this responsibility was creating the characters utilized in the game.
+      Using Blender, I made both a gnome character and a gremlin character. The initial idea was that the gnomes would reveal their true self (being gremlins), but unfortuntaly due to time constraints the gremlins did not make it into the final game.
+      To create the characters, I began by utilizing blenders scultping tools to create high-poly versions. Once the high-poly models were created, I employed the technique of retopology to create low-poly versions of the models, baking the details of the high-poly models into normal maps.
+    </p>
+
+    <div class="gallery-grid">
+    <div class="card">
+      <img src="Gnome Hunt Files/Gnome_lowpoly.png" alt="Gnome" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/Gremlin.png" alt="Gremlin" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/retopologygnome.PNG" alt="Retopology gnome" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/retopologygremlin.PNG" alt="Retopology gremlin" class="gallery-img">
+    </div>
+    </div>
+
+</section>
+  <section id="animation">
+  <h3>Animation</h3>
+    <p>Once the low-poly characters were complete, it was time to rig and animate them. I created the skeletons for each models by hand, and then utilized Blender's key points to animate the run cycles.
+    </p>
+  
+    <div class="gallery-grid">
+    <div class="card">
+      <img src="Gnome Hunt Files/gnomerunfront.gif" alt="Gnome run front" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/gnomeruneside.gif" alt="Gnome run side" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/gremlinrunfront.gif" alt="Gremlin run front" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/gremlinrunside.gif" alt="Gremlin run side" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/GnomeSkeleton.PNG" alt="Gnome skeleton" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/GremlinSkeleton.PNG" alt="Gremlin skeleton" class="gallery-img">
+    </div>
+    </div>
+</section>
+  <section id="Props">
+  <h3>Props</h3>
+  <p>To populate the garden of the game, I created a multitude of different 3D props. This included trees, hedges, grass, mushrooms, a house and the zap gun the VR player uses to exterminate the imposter gnomes.</p>
+  <div class="gallery-grid">
+    <div class="card">
+      <img src="Gnome Hunt Files/BirchTree.png" alt="Birch Tree" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/firtree.JPG" alt="Fir Tree" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/chantarelle.JPG" alt="Chantarelle" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/toadstool.JPG" alt="Toadstool" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/House.png" alt="House" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/ZapGunTest.png" alt="Zap gun" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/Grass.png" alt="Grass" class="gallery-img">
+    </div>
+    </div>
+  </section>
+
+  <section id="shaders">
+  <h3>Shaders</h3>
+  <p>To bring more life into the vegetation of the game, I created two diffrent URP shaders within Unity. These shaders were created to bring some movement to the leaves and the grass, allowing them to sway  in the wind.</p>  
+  <div class="gallery-grid">
+    <div class="card">
+      <img src="Gnome Hunt Files/GrassGif.gif" alt="Grass" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/HedgeGif.gif" alt="Hedge" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/LeafGif.gif" alt="Leaves" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/GrassShader.PNG" alt="Grass shader" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/LeafShader.PNG" alt="Leaf shader" class="gallery-img">
+    </div>
+    </div>  
+  </section>
+
+  <section id="leveldesign">
+  <h3>Level Design</h3>
+  <p>The last part of my work on Gnome Hunt related to putting together the garden in which the game takes place. This involved utilizing all the 3D assets I created, as well as some sourced textures and assets to create the garden.</p>
+     <div class="gallery-grid">
+    <div class="card">
+      <img src="Gnome Hunt Files/GardenSideView.PNG" alt="GardenSideView" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/GardenTopview.PNG" alt="GardenTopview" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/MoreGarden1.PNG" alt="MoreGarden1" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="Gnome Hunt Files/MoreGarden2.PNG" alt="MoreGarden2" class="gallery-img">
+    </div>
+    </div> 
+  </section>
+ 
+  <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+  </div>
   </main>
+
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox .close");
+
+  document.querySelectorAll(".gallery-img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
