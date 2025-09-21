@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Miscellaneous Work (2023-2025)</title>
+  <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+  <a href="#main" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+
+  <div class="wrap layout">
+    <!-- Sidebar / Header -->
+    <header>
+      <nav aria-label="Primary">
+        <div class="brand">Miscellaneous Work</div>
+        <div class="menu" role="list">
+          <a href="#about" role="listitem">About Miscellaneous Work</a>
+          <a href="#3dart" role="listitem">3D Art</a>
+          <p><a href="index.html">← Back to portfolio</a></p>
+        </div>
+      </nav>
+    </header>
+  <main class="wrap">
+
+    <section id="about">
+    <div class="project">
+      <div class="project-content">
+        <h1>Miscellaneous Work (2023-2025)</h1>
+        <h3>Personal work not tied to any specific project</h3>
+        <p>
+          This page includes a multitude of personal work I have done within the realm of 3D Art. Most of the work is from around 2023 when I first discovered my passion for video game design, which began with the creation of 3D assets.
+          There is no particular rhyme or reason to the work, but more an exploration of Blender and the tools I could use to create things.
+        </p>
+      </div>
+    </div>
+    </section>
+    
+    <section id="3dart">
+    <h1>Miscellaneous Work</h1>
+    <h3>3D art</h3>
+
+    <div class="gallery-grid">
+    <div class="card">
+      <img src="TwinBoundFiles/Dirt_Basic.png" alt="Dirt Tile 1" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/Dirt_Dinasour.png" alt="Dirt Tile 2" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/Dirt_Grass.png" alt="Dirt Tile 3" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/Dirt_StoneSparse.png" alt="Dirt Tile 4" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/PixelAttempt.png" alt="Background" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/PotionImage.png" alt="Potion" class="gallery-img">
+      <img src="TwinBoundFiles/ButtonImage.png" alt="Button" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="TwinBoundFiles/TwinBoundLogo.png" alt="Game Logo" class="gallery-img">
+    </div>
+
+    <!-- Add more cards as needed -->
+    </div>
+    </section>
+
+  <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+  </div>
+  </main>
+
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox .close");
+
+  document.querySelectorAll(".gallery-img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
+</body>
+</html>
