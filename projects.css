@@ -196,6 +196,11 @@
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
+    iframe {
+      display: block;
+      margin: 0 auto;
+    }
+
     .tag {
       display: inline-block;
       border: 1px solid color-mix(in oklab, var(--fg) 16%, transparent);
