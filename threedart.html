@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Miscellaneous Work (2023-2025)</title>
+  <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+  <a href="#main" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+
+  <div class="wrap layout">
+    <!-- Sidebar / Header -->
+    <header>
+      <nav aria-label="Primary">
+        <div class="brand">3D Art</div>
+        <div class="menu" role="list">
+          <a href="#about" role="listitem">About 3D Art</a>
+          <a href="#3dart" role="listitem">3D Art</a>
+          <p><a href="index.html">← Back to portfolio</a></p>
+        </div>
+      </nav>
+    </header>
+  <main class="wrap">
+
+    <section id="about">
+    <div class="project">
+      <div class="project-content">
+        <h1>3D Art 2025</h1>
+        <h3>Personal work not tied to any specific project</h3>
+        <p>
+          This page includes a multitude of personal work I have done in Blender to further expand my skillset and become more proficient with the tool. 
+        </p>
+      </div>
+    </div>
+    </section>
+    
+    <section id="3dart">
+    <h1>3D Art</h1>
+
+    <div class="gallery-grid">
+    <div class="card">
+      <img src="3D Art Pictures/House_Isometric.png" alt="House_Isometric" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="3D Art Pictures/House_AltView1.png" alt="House_AltView1" class="gallery-img">
+    </div>
+    <div class="card">
+      <img src="3D Art Pictures/House_AltView2.png" alt="House_AltView2" class="gallery-img">
+    </div>
+
+    <!-- Add more cards as needed -->
+    </div>
+    </section>
+
+  <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+  </div>
+  </main>
+
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox .close");
+
+  document.querySelectorAll(".gallery-img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
+</body>
+</html>
